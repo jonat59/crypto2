@@ -53,7 +53,7 @@ a {
   position: relative;
   text-decoration: none;
 }
-a:not(#logo a):after {
+a:not(#logo a):not(#reseaux-mobile a):not(#reseaux a):after {
   content: "";
   position: absolute;
   transform: scaleX(0);
@@ -64,11 +64,11 @@ a:not(#logo a):after {
   bottom: 0;
   left: 0;
 }
-a:not(#logo a):hover {
+a:not(#logo a):not(#reseaux-mobile a):not(#reseaux a):hover {
   color: rgb(177, 177, 196) !important;
   font-style: italic;
 }
-a:not(#logo a):hover:after {
+a:not(#logo a):not(#reseaux-mobile a):not(#reseaux a):hover:after {
   transform: scaleX(1);
 }
 
@@ -83,23 +83,72 @@ button:hover {
 }
 button.info {
   border: white;
-  color: white;
-  background: blue;
+  color: black;
+  background: goldenrod;
+  transition: background 0.5s ease-in-out;
 }
 button.info:hover {
-  border: blue;
-  color: blue;
-  background: white;
+  border: white;
+  color: goldenrod;
+  background: black;
+  transition: background 0.5s ease-in-out;
 }
 
 #scroll-to-top {
-  display: none;
+  //   mix-blend-mode: exclusion;
   position: fixed;
-  right: 1rem;
-  bottom: 5rem;
-  width: 70px;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(
+    45deg,
+    #00c6ff,
+    #0072ff
+  ); /* Dégradé bleu futuriste */
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 50px;
   cursor: pointer;
-  // mix-blend-mode: exclusion;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 0 10px rgba(0, 114, 255, 0.8);
+  transition: all 0.3s ease-in-out;
+}
+
+#scroll-to-top img {
+  width: 50px;
+  height: 50px;
+  // filter: invert(1); /* Rend l'image blanche si elle est noire */
+}
+
+#scroll-to-top:hover {
+  transform: translateY(-5px); /* Légère élévation au survol */
+  box-shadow: 0 0 20px rgba(0, 114, 255, 1);
+}
+
+#scroll-to-top:active {
+  transform: scale(0.95); /* Légère réduction au clic */
+}
+
+// #scroll-to-top.mobile {
+//   position: relative;
+//   right: inherit;
+//   bottom: inherit;
+//   width: 2rem;
+//   backdrop-filter: inherit;
+//   background-color: transparent;
+//   border-radius: inherit; // mettre le bouton dans la barre réseaux mobile
+// }
+#reseaux,
+#reseaux-mobile {
+  & a {
+    & i {
+      color: $text-color-light;
+    }
+  }
 }
 
 main {
@@ -268,9 +317,11 @@ html[data-theme="dark"] {
     & section#hero-header {
       & h1 {
         width: 100%;
+        border-radius: 0;
       }
       & #content {
         width: 100%;
+        border-radius: 0;
         & #p-left {
           display: none;
         }

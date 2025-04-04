@@ -5,7 +5,6 @@
   function init() {
     const storedTheme = localStorage.getItem('theme'); // récupère l'item avec la clé 'theme'
     const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches; // true || false
-    console.log(systemPrefersDark);
     const theme = storedTheme || (systemPrefersDark ? 'dark' : 'light');
     root.setAttribute('data-theme', theme);
     togglerThemes.forEach((toggler) => {

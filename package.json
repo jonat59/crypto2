@@ -1,26 +1,20 @@
 {
-  "name": "crypto",
+  "name": "my-crypto",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "sass": "sass --watch styles:public/assets/styles",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --style=compressed --watch styles:public/assets/styles",
     "server": "nodemon server.js",
     "browsersync": "browser-sync start --proxy http://localhost:3000 --files \"public/assets/styles/**/*.css,public/assets/js/**/*.js,views/**/*.ejs\"",
     "start": "concurrently \"npm run sass\" \"npm run server\" \"npm run browsersync\""
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jonat59/crypto.git"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jonat59/crypto/issues"
-  },
-  "homepage": "https://github.com/jonat59/crypto#readme",
+  "description": "",
   "dependencies": {
+    "dotenv": "^16.4.7",
     "ejs": "^3.1.10",
     "express": "^5.1.0"
   },

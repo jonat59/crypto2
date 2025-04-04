@@ -1,10 +1,12 @@
 const express = require("express");
 const path = require("path");
 const app = express();
+require("dotenv").config();
+const { fetchData } = require("./public/assets/js/lib/functions.js");
 
 app.set("view engine", "ejs");
 
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "public"))); // => /front/public/
 
 app.get("/", (req, res) => {
   res.render("index");
@@ -12,6 +14,27 @@ app.get("/", (req, res) => {
 
 app.get("/contact", (req, res) => {
   res.render("pages/contact");
+});
+const images = fetchData({
+  api: "https://api.unsplash.com",
+  route: "/photos",
+  options: {
+    headers: {
+      Authorization: `Client-ID ${process.env.UNSPLASH_CLIENT_ID}`,
+    },
+    params: { per_page: 50 },
+  },
+}).then((data) => {
+  return data;
+});
+app.get("/masonry", async (req, res) => {
+  try {
+    const imagesData = await images;
+    console.log(imagesData);
+    res.render("pages/masonry", { images: imagesData });
+  } catch (err) {
+    res.render("pages/masonry", { images: [] });
+  }
 });
 
 const PORT = process.env.PORT || 3000;

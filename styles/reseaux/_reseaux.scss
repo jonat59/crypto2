@@ -10,7 +10,8 @@
   // right: 0;
   top: 40%;
   & i {
-    font-size: 1.2rem;
+    color: goldenrod;
+    font-size: 2rem;
   }
 }
 
@@ -18,7 +19,7 @@
   display: none;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 576px) {
   #reseaux {
     display: none;
   }
@@ -28,12 +29,13 @@
     justify-content: space-around;
     padding: 18px 8px;
     width: 100%;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
     background-color: rgba(255, 255, 255, 0.5);
     position: fixed;
     // right: 0;
     bottom: 0;
     & i {
+      color: goldenrod;
       font-size: 2rem;
     }
   }

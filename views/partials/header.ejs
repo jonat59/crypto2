@@ -10,19 +10,42 @@
     <meta type="keywords" content="crypto, investissement, portefeuille" />
 
     <!-- Partage Réseaux  -->
-    <meta property="og:url" content="http://localhost:5501" />
+    <meta property="og:url" content="<%= process.env.SITE_URL %>" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="My Crypto" />
     <meta
       property="og:image"
-      content="http://localhost:5501/assets/images/Background_with_octogone_.png"
+      content="<%= process.env.SITE_URL %>/assets/images/Background_with_octogone_.png"
     />
     <meta
       property="og:description"
       content="Site de suivi de portefeuille de cryptomonaies avec gestion ia alertes en temps réel"
     />
-
-    <link rel="stylesheet" href="/assets/styles/style.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="<%= process.env.SITE_URL %>/assets/favicons/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="<%= process.env.SITE_URL %>/assets/favicons/favicon.svg"
+    />
+    <link rel="shortcut icon" href="/assets/favicons/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="<%= process.env.SITE_URL %>/assets/favicons/apple-touch-icon.png"
+    />
+    <link
+      rel="manifest"
+      href="<%= process.env.SITE_URL %>/assets/favicons/site.webmanifest"
+    />
+    <link
+      rel="stylesheet"
+      href="<%= process.env.SITE_URL %>/assets/styles/style.css"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -31,14 +54,20 @@
       referrerpolicy="no-referrer"
     />
     <script type="module" src="/assets/js/main.js"></script>
-    <title>My Crypto</title>
+    <title>
+      <%= typeof title !== 'undefined' ? 'My crypto | ' + title : 'My Crypto' %>
+    </title>
   </head>
 
   <body>
     <header>
       <nav>
         <div id="logo">
-          <a href="/">LOGO</a>
+          <a href="/"
+            ><img
+              src="<%= process.env.SITE_URL %>/images/logo.jpg"
+              alt="logo du site"
+          /></a>
         </div>
         <div id="nav">
           <ul>
@@ -52,7 +81,10 @@
             <li>
               <i class="fab fa-contao"></i><a href="#carrousel">Carousel</a>
             </li>
-            <li><i class="fab fa-contao"></i><a href="/contact">Contact</a></li>
+            <li><i class="fab fa-phone"></i><a href="/contact">Contact</a></li>
+            <li>
+              <i class="fas fa-photo-film"></i><a href="/masonry">Gallerie</a>
+            </li>
           </ul>
           <i data-theme-toggler class="fas fa-moon"></i>
         </div>

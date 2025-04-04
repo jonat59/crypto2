@@ -1,5 +1,12 @@
 <head>
-  <script type="module" src="/assets/js/accueil.js"></script>
+  <script
+    type="module"
+    src="<%= process.env.SITE_URL %>/assets/js/accueil.js"
+  ></script>
+  <link
+    rel="stylesheet"
+    href="<%= process.env.SITE_URL%>/assets/styles/accueil.css"
+  />
 </head>
 <%- include('partials/header') %>
 <main>
@@ -15,7 +22,7 @@
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto
           perspiciatis ut incidunt quasi.
         </p>
-        <button class="info">EN savoir plus ...</button>
+        <button class="info">En savoir plus ...</button>
       </div>
     </div>
   </section>

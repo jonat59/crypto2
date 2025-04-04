@@ -2,11 +2,9 @@ header {
   position: fixed;
   width: 100%;
   z-index: 1000;
-  & #logo {
-    & img {
-      height: 50px;
-      width: 50px;
-    }
+  & #logo img {
+    height: 50px;
+    width: 50px;
   }
   & nav {
     max-width: 1280px;
@@ -22,8 +20,6 @@ header {
         justify-content: space-around;
         display: flex;
         & li {
-          align-items: center;
-          align-content: center;
           & i {
             display: none;
           }
@@ -61,7 +57,7 @@ header {
         width: 50vw;
         max-width: 200px;
         min-height: 50vh;
-        height: calc(var(--vh, 1vh) * 100);
+        min-height: calc(var(--vh, 1vh) * 50);
         border-radius: 8px;
         height: 70%;
         & ul {
